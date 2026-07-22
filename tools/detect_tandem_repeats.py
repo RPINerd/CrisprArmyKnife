@@ -16,10 +16,11 @@ import edlib
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
-repo_root = Path(__file__).resolve().parents[1]
-if str(repo_root) not in sys.path:
-    sys.path.insert(0, str(repo_root))
-from macguffins.macguffin_acquire import fetch_exons
+workspace_root = Path(__file__).resolve().parents[1]
+biox_macguffins_root = workspace_root.parent / "biox_macguffins"
+if str(biox_macguffins_root) not in sys.path:
+    sys.path.insert(0, str(biox_macguffins_root))
+from macguffins.acquire import fetch_exons
 
 logging.basicConfig(
     level=logging.DEBUG,
